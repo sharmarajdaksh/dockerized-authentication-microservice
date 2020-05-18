@@ -5,8 +5,8 @@ WORKDIR /usr/app/
 COPY ./package*.json ./
 RUN npm install
 
-RUN npm install -g nodemon
+RUN npm install -g pm2
 
 COPY ./ ./
 
-CMD ["npm", "start"]
+CMD [ "pm2-runtime", "npm", "--", "start", "--watch" ]
