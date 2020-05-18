@@ -1,0 +1,18 @@
+version: '3'
+services:
+    postgres:
+        image: postgres
+        restart: always
+        environment:
+            # Use Docker secrets for production
+            POSTGRES_PASSWORD: Password123
+    auth_microservice:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        restart: always
+        ports:
+            - 3002:3002
+        volumes:
+            - /usr/app/node_modules
+            - ./:/usr/app/
