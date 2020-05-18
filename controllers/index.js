@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 
 const User = require('../models/user');
 
-const BCRYPT_SECRET = process.env.BCRYPT_SECRET;
+const JWT_SECRET = process.env.BCRYPT_SECRET;
 
 const generateToken = (username) => {
 	const timestamp = new Date().getTime();
