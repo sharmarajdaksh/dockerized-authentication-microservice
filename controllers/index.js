@@ -3,13 +3,13 @@ const jwt = require('jsonwebtoken');
 
 const User = require('../models/user');
 
-const JWT_SECRET = process.env.BCRYPT_SECRET;
+const JWT_SECRET = process.env.JWT_SECRET;
 
 const generateToken = (username) => {
 	const timestamp = new Date().getTime();
 
 	// sub is the subject; iat is the issued at time
-	return jwt.sign({ sub: username, iat: timestamp }, BCRYPT_SECRET);
+	return jwt.sign({ sub: username, iat: timestamp }, JWT_SECRET);
 };
 
 exports.login = (req, res, next) => {
