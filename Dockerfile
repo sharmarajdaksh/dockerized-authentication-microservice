@@ -9,4 +9,4 @@ RUN npm install -g pm2
 
 COPY ./ ./
 
-CMD [ "pm2-runtime", "npm", "--", "start", "--watch" ]
+CMD [ "pm2-runtime", "npm", "--", "start" ]
